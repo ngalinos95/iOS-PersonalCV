@@ -62,7 +62,7 @@ struct Goals: View {
                     
                 }.scrollContentBackground(.hidden)
                 
-                
+                   
                 
             }.padding()
                 .background(Color(white: 0.18))
