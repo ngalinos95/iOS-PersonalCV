@@ -6,47 +6,38 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct CreateGoal: View {
-    @EnvironmentObject var listOfGoals : CreateGoals
     @Environment(\.dismiss) var dismiss
-    @State var newEntry : Goal = Goal(goal: "", limit: "")
+    @State var nameInput: String = ""
+    @State var limitInput: String = ""
+    let viewContext: NSManagedObjectContext // Add this line to accept the viewContext as a parameter
     var body: some View {
-        
-            VStack(alignment: .leading) {
-                
-                Form {
-                    Text("Creation of new Goal !!")
-                    Section("Goal") {
-                        TextField("Type a  new goal", text: $newEntry.goal)
-                        
-                    }
-                    
-                    Section("Date Limit") {
-                        TextField("Type a new limit", text: $newEntry.limit)
-                        
-                    }
-                    
+        VStack(alignment: .leading) {
+            Form {
+                Text("Creation of new Goal !!")
+                Section("Goal") {
+                    TextField("Type a  new goal", text: $nameInput)
                 }
                 
+                Section("Date Limit") {
+                    TextField("Type a  date", text: $limitInput)
+                }
             }
-            .toolbar {
-                ToolbarItem {
-                    Button("Add") {
-                        listOfGoals.list.append(newEntry)
-                        dismiss()
-                        
-                    }
+        }
+        .toolbar {
+            ToolbarItem {
+                Button("Add") {
+                    let newGoal = GoalEntry(context: viewContext) // Use the provided viewContext
+                    newGoal.goal = nameInput
+                    newGoal.limit = limitInput
+                    
+                    try? viewContext.save()
+                    dismiss()
                 }
-            
+            }
         }
     }
-}
-
-struct CreateGoal_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack() {
-            CreateGoal().environmentObject(CreateGoals())
-        }
-    }
+    
 }

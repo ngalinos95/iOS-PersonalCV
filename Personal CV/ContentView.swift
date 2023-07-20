@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var listOfGoals = CreateGoals()
+    @StateObject private var manager : DataManager = DataManager()
 
     var body: some View {
         TabView{
@@ -35,7 +35,7 @@ struct ContentView: View {
                     Color.yellow,
                     for: .tabBar)
             Goals()
-                .environmentObject(listOfGoals)
+                .environment(\.managedObjectContext, manager.container.viewContext)
                 .tabItem{
                     Label("Goals",systemImage: "star")
                         

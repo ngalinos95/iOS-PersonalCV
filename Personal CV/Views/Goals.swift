@@ -8,29 +8,21 @@
 import SwiftUI
 
 struct Goals: View {
-    @EnvironmentObject var listOfGoals : CreateGoals
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: []) private var goalList: FetchedResults<GoalEntry>
     var body: some View {
         NavigationStack{
             VStack{
-                
-                
                 HStack{Text("Goals")
                         .foregroundColor(Color.white)
                         .font(.system(size: 35, weight: .bold))
-                    
-                    
-                    
                     Spacer()
                 }.padding(.bottom,30)
-                
-                
                 HStack{
                     Text("Bellow is a list of the open goals for the forecoming year.Many new end exciting things are on the way 🎉 !")
                         .foregroundColor(Color.white)
                         .font(.system(size: 20, weight: .regular))
-                    
                     Spacer()
-                    
                 }.padding(.bottom,20)
                 HStack{
                     Text("-Click the Add button to add new Goals")
@@ -40,50 +32,52 @@ struct Goals: View {
                     Spacer()
                     
                 }.padding(.bottom,10)
-                
                 HStack{
                     Text("-Swipe on a list entry to delete it")
                         .foregroundColor(Color.white)
                         .font(.system(size: 20, weight: .regular))
-                    
                     Spacer()
-                    
                 }
-                
-                List{
-                    
-                    ForEach(listOfGoals.list){x in
+                List {
+                    ForEach(goalList) { x in
+                        HStack {
+                            Text(x.goal ?? "Blank")
+                            Text("until")
+                            Text(x.limit ?? "Blank") // Display the Date directly
+                        }
+                    }
+                    .onDelete { indexSet in
+                        let goalsRemoved = indexSet.map { goalList[$0] }
+                        goalsRemoved.forEach { goal in
+                            viewContext.delete(goal)
+                        }
                         
-                        Text("Goal : \(x.goal) -- Goal setting period  : \(x.limit)")
-                    }.onDelete { indexSet in
-                        listOfGoals.list.remove(atOffsets: indexSet)
+                        do {
+                            try viewContext.save()
+                        } catch {
+                            print("Error saving context: \(error)")
+                        }
                     }
                     .listRowBackground(Color(white: 0.50)) // Set the background color of the list rows
                     
                 }.scrollContentBackground(.hidden)
                 
-                   
-                
             }.padding()
                 .background(Color(white: 0.18))
                 .toolbar{
-                            ToolbarItem{
-                                NavigationLink{
-                                    CreateGoal()
-                                } label :{
-                                    Text("Add +")
-                                        .foregroundColor(Color.blue)
-                                }
-                            }
+                    ToolbarItem {
+                        NavigationLink {
+                            CreateGoal(viewContext: viewContext) // Pass the viewContext here
+                        } label: {
+                            Text("Add +")
+                                .foregroundColor(Color.blue)
                         }
-            
+                    }
+                }
         }
     }
+    
+   
 }
 
-struct Goals_Previews: PreviewProvider {
-    static var previews: some View {
-        Goals()
-            .environmentObject(CreateGoals())
-    }
-}
+

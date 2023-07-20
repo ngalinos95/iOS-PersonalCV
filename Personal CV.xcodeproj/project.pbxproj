@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E5D2EB52A6693AE000A70E4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D2EB42A6693AE000A70E4 /* DataManager.swift */; };
+		0E5D2EB82A669402000A70E4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D2EB62A669402000A70E4 /* Model.xcdatamodeld */; };
 		CE6F44DD2A0FD420001B54E7 /* Personal_CVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F44DC2A0FD420001B54E7 /* Personal_CVApp.swift */; };
 		CE6F44DF2A0FD420001B54E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F44DE2A0FD420001B54E7 /* ContentView.swift */; };
 		CE6F44E12A0FD420001B54E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6F44E02A0FD420001B54E7 /* Assets.xcassets */; };
@@ -19,7 +21,6 @@
 		CE6F450C2A0FE982001B54E7 /* Certifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F450B2A0FE982001B54E7 /* Certifications.swift */; };
 		CE6F450E2A0FEC3E001B54E7 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F450D2A0FEC3E001B54E7 /* Goals.swift */; };
 		CE6F45102A0FF07E001B54E7 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F450F2A0FF07E001B54E7 /* ImagePreview.swift */; };
-		CE6F45132A100E55001B54E7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F45122A100E55001B54E7 /* Data.swift */; };
 		CE6F45152A10133F001B54E7 /* CreateGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F45142A10133E001B54E7 /* CreateGoal.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E5D2EB42A6693AE000A70E4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		0E5D2EB72A669402000A70E4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		CE6F44D92A0FD420001B54E7 /* Personal CV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal CV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6F44DC2A0FD420001B54E7 /* Personal_CVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal_CVApp.swift; sourceTree = "<group>"; };
 		CE6F44DE2A0FD420001B54E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,7 +59,6 @@
 		CE6F450B2A0FE982001B54E7 /* Certifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Certifications.swift; sourceTree = "<group>"; };
 		CE6F450D2A0FEC3E001B54E7 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
 		CE6F450F2A0FF07E001B54E7 /* ImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
-		CE6F45122A100E55001B54E7 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		CE6F45142A10133E001B54E7 /* CreateGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,7 +161,8 @@
 		CE6F45112A100E43001B54E7 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				CE6F45122A100E55001B54E7 /* Data.swift */,
+				0E5D2EB42A6693AE000A70E4 /* DataManager.swift */,
+				0E5D2EB62A669402000A70E4 /* Model.xcdatamodeld */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6F450C2A0FE982001B54E7 /* Certifications.swift in Sources */,
+				0E5D2EB52A6693AE000A70E4 /* DataManager.swift in Sources */,
 				CE6F45082A0FD446001B54E7 /* Homepage.swift in Sources */,
 				CE6F450E2A0FEC3E001B54E7 /* Goals.swift in Sources */,
 				CE6F44DF2A0FD420001B54E7 /* ContentView.swift in Sources */,
@@ -302,7 +306,7 @@
 				CE6F44DD2A0FD420001B54E7 /* Personal_CVApp.swift in Sources */,
 				CE6F45152A10133F001B54E7 /* CreateGoal.swift in Sources */,
 				CE6F450A2A0FE971001B54E7 /* Projects.swift in Sources */,
-				CE6F45132A100E55001B54E7 /* Data.swift in Sources */,
+				0E5D2EB82A669402000A70E4 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +473,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,6 +503,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -623,6 +629,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0E5D2EB62A669402000A70E4 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0E5D2EB72A669402000A70E4 /* Model.xcdatamodel */,
+			);
+			currentVersion = 0E5D2EB72A669402000A70E4 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CE6F44D12A0FD420001B54E7 /* Project object */;
 }
